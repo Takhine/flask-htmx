@@ -1,0 +1,21 @@
+<article class="grid grid-cols-[300px_600px] mb-4">
+    {% if media_content %}
+    <img src="{{ media_content[0]['url'] }}" class="aspect-video rounded-md shadow-md" />
+
+    {% endif %}
+    <div class="ml-8 pt-4 {{ 'col-start-2' if media_content else 'col-start-1 col-span-2' }}"
+    x-data="{ read: {{read|lower}} }"
+    >
+        <h2 class="font-bold text-2xl">
+            {{title}}
+        </h2>
+        <small class="text-xs block" x-show="!read">(This article has not been read)</small>
+        <p>
+            Published by <span class="font-medium">{{author}}</span> on <span class="font-medium">{{published}}</span>
+        </p>
+        <p class="leading-6 mb-2">{{summary}}</p>
+        <a href="{{url_for('read_entry', feed_url=feed_url, entry_url=link)}}" 
+        x-on:click="$dispatch('read', {read: read}); read=true" 
+        class="underline" target="_blank">Read article</a>
+    </div>
+</article>

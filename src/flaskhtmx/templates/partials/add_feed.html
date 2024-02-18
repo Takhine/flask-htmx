@@ -1,0 +1,18 @@
+<form 
+class="flex flex-col gap-y-2 items-center" 
+action="{{url_for('add_feed')}}"
+ method="post">
+    <div>
+        <label for="url">URL</label>
+        <input type="text" name="url" id="url" class="bg-slate-100 border border-gray-300 rounded-md p-2" />
+    </div>
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" class="bg-slate-100 border border-gray-300 rounded-md p-2" />
+    </div>
+    <div>
+        <label for="showImages">Show Images</label>
+        <input type="checkbox" name="showImages" id="showImages" class="border border-gray-300 rounded-md p-2" />
+    </div>
+    <button type="submit" class="bg-slate-600 text-white font-semibold rounded-md px-4 py-2">Submit</button>
+</form>
